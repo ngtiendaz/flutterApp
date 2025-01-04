@@ -13,6 +13,12 @@ class HomeTabNotifier with ChangeNotifier {
       case 'All':
         setQueryType(QueryType.all);
         break;
+      case 'Gaming':
+        setQueryType(QueryType.gaming);
+        break;
+      case 'VanPhong':
+        setQueryType(QueryType.vanphong);
+        break;
       default:
         setQueryType(QueryType.all);
     }

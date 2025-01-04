@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/utils/enums.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/categories/hook/results/category_products_results.dart';
@@ -19,13 +21,20 @@ FetchProduct fetchProducts(QueryType queryType) {
         case QueryType.all:
           url = Uri.parse('${Environment.appBaseUrl}/api/product/');
           break;
+        case QueryType.gaming:
+          url = Uri.parse(
+              '${Environment.appBaseUrl}/api/product/byType/?productType=gaming');
+          break;
+        case QueryType.vanphong:
+          url = Uri.parse(
+              '${Environment.appBaseUrl}/api/product/byType/?productType=vanphong');
+          break;
       }
 
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
-        products.value = productsFromJson(response.body);
-        print(products.value);
+        products.value = productsFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
       error.value = e.toString();

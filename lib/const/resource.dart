@@ -28,12 +28,10 @@ class R {
       'assets/images/getstarted.png';
 
   /// ![preview](file:///Volumes/Transfer/Projects/fashion/assets/images/placeholder.webp)
-  static const String ASSETS_IMAGES_PLACEHOLDER_WEBP =
-      'assets/images/placeholder.webp';
+  static const String ASSETS_IMAGES_PLACEHOLDER_WEBP = 'assets/images/ab.webp';
 
   /// ![preview](file:///Volumes/Transfer/Projects/fashion/assets/images/splashscreen.png)
-  static const String ASSETS_IMAGES_SPLASHSCREEN_PNG =
-      'assets/images/splashscreen.png';
+  static const String ASSETS_IMAGES_SPLASHSCREEN_PNG = 'assets/images/aa.png';
 
   /// ![preview](file:///Volumes/Transfer/Projects/fashion/assets/images/wishlist.png)
   static const String ASSETS_IMAGES_WISHLIST_PNG = 'assets/images/wishlist.png';

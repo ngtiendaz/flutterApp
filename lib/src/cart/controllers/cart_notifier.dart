@@ -57,7 +57,8 @@ class CartNotifier with ChangeNotifier {
     String? accessToken = Storage().getString('accessToken');
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/cart/delete/?id=$id');
+      Uri url =
+          Uri.parse('${Environment.appBaseUrl}/api/newcart/delete/?id=$id');
 
       final response = await http.delete(
         url,
@@ -82,7 +83,7 @@ class CartNotifier with ChangeNotifier {
 
     try {
       Uri url = Uri.parse(
-          '${Environment.appBaseUrl}/api/cart/update/?id=$id&count=$qty');
+          '${Environment.appBaseUrl}/api/newcart/update/?id=$id&count=$qty');
 
       final response = await http.patch(
         url,
@@ -105,7 +106,7 @@ class CartNotifier with ChangeNotifier {
     String? accessToken = Storage().getString('accessToken');
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/cart/add/');
+      Uri url = Uri.parse('${Environment.appBaseUrl}/api/newcart/add/');
 
       final response = await http.post(
         url,
@@ -193,7 +194,7 @@ class CartNotifier with ChangeNotifier {
           body: data);
 
       if (response.statusCode == 200) {
-        final responseData = jsonDecode(response.body);
+        final responseData = jsonDecode(utf8.decode(response.bodyBytes));
 
         setPaymentUrl(responseData['url']);
       }

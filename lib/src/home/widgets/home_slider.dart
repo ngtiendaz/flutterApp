@@ -1,8 +1,8 @@
 import 'package:fashion_app/common/utils/kcolors.dart';
-import 'package:fashion_app/common/utils/kstrings.dart';
-import 'package:fashion_app/common/widgets/app_style.dart';
-import 'package:fashion_app/common/widgets/custom_button.dart';
-import 'package:fashion_app/common/widgets/reusable_text.dart';
+// import 'package:fashion_app/common/utils/kstrings.dart';
+// import 'package:fashion_app/common/widgets/app_style.dart';
+// import 'package:fashion_app/common/widgets/custom_button.dart';
+// import 'package:fashion_app/common/widgets/reusable_text.dart';
 import 'package:fashion_app/const/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +19,7 @@ class HomeSlider extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            height: ScreenUtil().screenHeight * 0.16,
+            height: ScreenUtil().screenHeight * 0.25,
             width: ScreenUtil().screenWidth,
             child: ImageSlideshow(
               indicatorColor: Kolors.kPrimaryLight,

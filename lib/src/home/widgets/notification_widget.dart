@@ -28,11 +28,11 @@ class NotificationWidget extends HookWidget {
         padding: EdgeInsets.only(right: 12.w),
         child: CircleAvatar(
           backgroundColor: Kolors.kGrayLight.withOpacity(.3),
-          child:  Badge(
-            label: Text(isLoading ? "0":data.unreadCount.toString()),
+          child: Badge(
+            label: Text(isLoading ? "0" : data.unreadCount.toString()),
             child: const Icon(
               Ionicons.notifications,
-              color: Kolors.kPrimary,
+              color: Color.fromARGB(255, 91, 43, 43),
             ),
           ),
         ),

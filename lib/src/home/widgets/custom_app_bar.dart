@@ -26,7 +26,7 @@ class CustomAppBar extends HookWidget {
             padding: const EdgeInsets.only(left: 3.0),
             child: ReusableText(
                 text: "Location",
-                style: appStyle(12, const Color.fromARGB(255, 247, 35, 35),
+                style: appStyle(12, const Color.fromARGB(255, 41, 39, 39),
                     FontWeight.normal)),
           ),
           SizedBox(
@@ -37,7 +37,7 @@ class CustomAppBar extends HookWidget {
               const Icon(
                 Ionicons.location,
                 size: 16,
-                color: Color.fromARGB(255, 103, 206, 62),
+                color: Color.fromARGB(255, 235, 52, 28),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 6.0),
@@ -77,7 +77,7 @@ class CustomAppBar extends HookWidget {
                     decoration: BoxDecoration(
                         border: Border.all(
                           width: 0.5,
-                          color: const Color.fromARGB(255, 255, 30, 30),
+                          color: const Color.fromARGB(255, 250, 51, 51),
                         ),
                         borderRadius: BorderRadius.circular(12)),
                     child: Padding(
@@ -87,7 +87,7 @@ class CustomAppBar extends HookWidget {
                           const Icon(
                             Ionicons.search,
                             size: 20,
-                            color: Color.fromARGB(255, 235, 74, 74),
+                            color: Color.fromARGB(255, 197, 117, 117),
                           ),
                           SizedBox(
                             width: 20.w,
@@ -96,7 +96,7 @@ class CustomAppBar extends HookWidget {
                               text: "Search Products",
                               style: appStyle(
                                   14,
-                                  const Color.fromARGB(255, 0, 0, 0),
+                                  const Color.fromARGB(255, 143, 138, 138),
                                   FontWeight.w400))
                         ],
                       ),
@@ -107,11 +107,11 @@ class CustomAppBar extends HookWidget {
                   height: 40.h,
                   width: 40.w,
                   decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 236, 60, 60),
+                      color: const Color.fromARGB(255, 218, 185, 185),
                       borderRadius: BorderRadius.circular(9)),
                   child: const Icon(
                     FontAwesome.sliders,
-                    color: Kolors.kWhite,
+                    color: Color.fromARGB(255, 224, 64, 64),
                     size: 20,
                   ),
                 )

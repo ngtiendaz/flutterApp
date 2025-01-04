@@ -18,14 +18,17 @@ class HomeTabs extends StatelessWidget {
       child: TabBar(
         controller: _tabController,
         indicator: BoxDecoration(
-            color: Kolors.kPrimary, borderRadius: BorderRadius.circular(25)),
+            color: const Color.fromARGB(255, 139, 92, 92),
+            borderRadius: BorderRadius.circular(25)),
         labelPadding: EdgeInsets.zero,
         labelColor: Kolors.kWhite,
         dividerColor: Colors.transparent,
         tabAlignment: TabAlignment.start,
         isScrollable: true,
-        labelStyle: appStyle(11, Kolors.kPrimary, FontWeight.w600),
-        unselectedLabelStyle: appStyle(11, Kolors.kGray, FontWeight.normal),
+        labelStyle: appStyle(
+            11, const Color.fromARGB(255, 91, 43, 43), FontWeight.w600),
+        unselectedLabelStyle:
+            appStyle(11, const Color.fromARGB(255, 0, 0, 0), FontWeight.normal),
         tabs: List.generate(
             homeTabs.length,
             (i) => Tab(

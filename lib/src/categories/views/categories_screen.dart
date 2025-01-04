@@ -58,7 +58,8 @@ class CategoriesPage extends HookWidget {
               ),
               title: ReusableText(
                   text: category.title,
-                  style: appStyle(12, Kolors.kGray, FontWeight.normal)),
+                  style: appStyle(12, const Color.fromARGB(255, 0, 0, 0),
+                      FontWeight.normal)),
               trailing: const Icon(
                 MaterialCommunityIcons.chevron_double_right,
                 size: 18,

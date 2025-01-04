@@ -49,18 +49,21 @@ class ExploreProducts extends HookWidget {
                 return StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: mainAxisCellCount,
-                    child: StaggeredTileWidget(
-                      onTap: () {
-                        if (accessToken == null) {
-                          loginBottomSheet(context);
-                        } else {
-                          context
-                              .read<WishlistNotifier>()
-                              .addRemoveWishlist(product.id, () {});
-                        }
-                      },
-                      product: product,
-                      i: i,
+                    child: Padding(
+                      padding: EdgeInsets.all((i % 2 == 0 ? 2.17 : 2.4)),
+                      child: StaggeredTileWidget(
+                        onTap: () {
+                          if (accessToken == null) {
+                            loginBottomSheet(context);
+                          } else {
+                            context
+                                .read<WishlistNotifier>()
+                                .addRemoveWishlist(product.id, () {});
+                          }
+                        },
+                        product: product,
+                        i: i,
+                      ),
                     ));
               }),
             ),

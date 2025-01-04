@@ -26,7 +26,6 @@ class AppEntryPoint extends HookWidget {
     final rslt = fetchCartCount(context);
     final data = rslt.count;
 
-    
     return Consumer<TabIndexNotifier>(
       builder: (context, tabIndexNotifier, child) {
         return Scaffold(
@@ -79,7 +78,7 @@ class AppEntryPoint extends HookWidget {
                             label: "Wishlist"),
                         BottomNavigationBarItem(
                             icon: tabIndexNotifier.index == 2
-                                ?  Badge(
+                                ? Badge(
                                     label: Text(data.cartCount.toString()),
                                     child: const Icon(
                                       MaterialCommunityIcons.shopping,
@@ -87,7 +86,7 @@ class AppEntryPoint extends HookWidget {
                                       size: 24,
                                     ),
                                   )
-                                :  Badge(
+                                : Badge(
                                     label: Text(data.cartCount.toString()),
                                     child: const Icon(
                                       MaterialCommunityIcons.shopping_outline,

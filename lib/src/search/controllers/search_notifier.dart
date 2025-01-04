@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/products/models/products_model.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +57,7 @@ class SearchNotifier with ChangeNotifier {
       var response = await http.get(url);
 
       if (response.statusCode == 200) {
-        var data = productsFromJson(response.body);
+        var data = productsFromJson(utf8.decode(response.bodyBytes));
 
         setResults(data);
 

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/enums.dart';
 import 'package:fashion_app/common/utils/environment.dart';
@@ -34,7 +36,7 @@ FetchOrders fetchOrders(FetchOrdersTypes o) {
       }
 
       String? accessToken = Storage().getString('accessToken');
-   
+
       final response = await http.get(
         url,
         headers: {
@@ -44,7 +46,7 @@ FetchOrders fetchOrders(FetchOrdersTypes o) {
       );
 
       if (response.statusCode == 200) {
-        orders.value = ordersModelFromJson(response.body);
+        orders.value = ordersModelFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
       error.value = e.toString();

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/categories/hook/results/category_products_results.dart';
 import 'package:fashion_app/src/products/models/products_model.dart';
@@ -19,7 +21,7 @@ FetchProduct fetchProductsByCategories(int categoryId) {
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
-        products.value = productsFromJson(response.body);
+        products.value = productsFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
       error.value = e.toString();

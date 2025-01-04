@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/categories/hook/results/categories_results.dart';
 import 'package:fashion_app/src/categories/models/categories_model.dart';
@@ -19,7 +21,7 @@ FetchCategories fetchHomeCategories() {
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
-        categories.value = categoriesFromJson(response.body);
+        categories.value = categoriesFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
       error.value = e.toString();

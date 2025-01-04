@@ -102,8 +102,8 @@ class ProfilePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14.0),
               child: CustomButton(
-                text: "Logout".toUpperCase(),
-                btnColor: Kolors.kRed,
+                text: "Log out".toUpperCase(),
+                btnColor: const Color.fromARGB(255, 109, 23, 23),
                 btnHieght: 35,
                 btnWidth: ScreenUtil().screenWidth,
                 onTap: () {

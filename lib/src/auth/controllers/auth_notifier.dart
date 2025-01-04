@@ -44,7 +44,8 @@ class AuthNotifier with ChangeNotifier {
           body: data);
 
       if (response.statusCode == 200) {
-        String accessToken = accessTokenModelFromJson(response.body).authToken;
+        String accessToken =
+            accessTokenModelFromJson(utf8.decode(response.bodyBytes)).authToken;
 
         getUser(accessToken, ctx);
         setLoading(false);
@@ -70,7 +71,6 @@ class AuthNotifier with ChangeNotifier {
         setRLoading();
         ctx.pop();
       } else if (response.statusCode == 400) {
-
         setRLoading();
         var data = jsonDecode(response.body);
         showErrorPopup(ctx, data['password'][0], null, null);

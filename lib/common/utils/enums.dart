@@ -1,5 +1,7 @@
 enum QueryType {
   all,
+  gaming,
+  vanphong,
 }
 
 enum WishlistToggle {

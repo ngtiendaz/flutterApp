@@ -48,7 +48,7 @@ class SimilarProducts extends HookWidget {
                         if (accessToken == null) {
                           loginBottomSheet(context);
                         } else {
-                         context
+                          context
                               .read<WishlistNotifier>()
                               .addRemoveWishlist(product.id, () {});
                         }

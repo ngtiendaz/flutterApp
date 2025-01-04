@@ -1,3 +1,4 @@
+import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/src/home/controllers/home_tab_notifier.dart';
 import 'package:fashion_app/src/home/widgets/categories_list.dart';
 import 'package:fashion_app/src/home/widgets/custom_app_bar.dart';
@@ -54,36 +55,39 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         preferredSize: Size.fromHeight(110),
         child: CustomAppBar(),
       ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 12.w),
-        children: [
-          SizedBox(
-            height: 20.h,
-          ),
-          const HomeSlider(),
-          SizedBox(
-            height: 15.h,
-          ),
-          const HomeHeader(),
-          SizedBox(
-            height: 10.h,
-          ),
-          const HomeCategoriesList(),
-          SizedBox(
-            height: 15.h,
-          ),
-          HomeTabs(tabController: _tabController),
-          SizedBox(
-            height: 15.h,
-          ),
-          const ExploreProducts(),
-          SizedBox(
-            height: 100.h,
-          ),
-        ],
+      body: Container(
+        color: Kolors.kOffWhite,
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 12.w),
+          children: [
+            SizedBox(
+              height: 20.h,
+            ),
+            const HomeSlider(),
+            SizedBox(
+              height: 15.h,
+            ),
+            const HomeHeader(),
+            SizedBox(
+              height: 10.h,
+            ),
+            const HomeCategoriesList(),
+            SizedBox(
+              height: 15.h,
+            ),
+            HomeTabs(tabController: _tabController),
+            SizedBox(
+              height: 15.h,
+            ),
+            const ExploreProducts(),
+            SizedBox(
+              height: 100.h,
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-List<String> homeTabs = ['All'];
+List<String> homeTabs = ['All', 'Gaming', 'VanPhong'];

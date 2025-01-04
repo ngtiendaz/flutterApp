@@ -141,8 +141,7 @@ class ProductPage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: ReusableText(
-                      text: productNotifier.product!.title,
+                  child: Text(productNotifier.product!.title,
                       style: appStyle(16, Kolors.kDark, FontWeight.w600)),
                 ),
               ),
@@ -184,21 +183,14 @@ class ProductPage extends StatelessWidget {
               if (accessToken == null) {
                 loginBottomSheet(context);
               } else {
-                if (context.read<ColorSizesNotifier>().color == '' ||
-                    context.read<ColorSizesNotifier>().sizes == '') {
-                  showErrorPopup(context, AppText.kCartErrorText,
-                      "Error Adding to Cart", true);
-                } else {
-                  CreateCartModel data = CreateCartModel(
-                      product: context.read<ProductNotifier>().product!.id,
-                      quantity: 1,
-                      size: context.read<ColorSizesNotifier>().sizes,
-                      color: context.read<ColorSizesNotifier>().color);
+                CreateCartModel data = CreateCartModel(
+                  product: context.read<ProductNotifier>().product!.id,
+                  quantity: 1,
+                );
 
-                  String cartData = createCartModelToJson(data);
+                String cartData = createCartModelToJson(data);
 
-                  context.read<CartNotifier>().addToCart(cartData, context);
-                }
+                context.read<CartNotifier>().addToCart(cartData, context);
               }
             },
             price: productNotifier.product!.price.toStringAsFixed(2),

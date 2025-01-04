@@ -36,22 +36,24 @@ class StaggeredTileWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: i % 2 == 0 ? 153.h : 170.h,
-                color: Kolors.kOffWhite,
+                height: i % 2 == 0 ? 146.h : 168.h,
+                color: Kolors.kGrayLight,
                 child: Stack(
                   children: [
                     CachedNetworkImage(
                         width: double.infinity,
-                        height: i % 2 == 0 ? 153.h : 170.h,
+                        height: i % 2 == 0 ? 146.h : 168.h,
                         fit: BoxFit.cover,
                         imageUrl: product.imageUrls[0]),
                     Positioned(
-                        right: 10.h,
-                        top: 10.h,
-                        child: Consumer<WishlistNotifier>(
-                          builder: (context, wishlistNotifier, child) {
-                            return GestureDetector(
-                              onTap: onTap,
+                      right: 10.h,
+                      top: 10.h,
+                      child: Consumer<WishlistNotifier>(
+                        builder: (context, wishlistNotifier, child) {
+                          return GestureDetector(
+                            onTap: onTap,
+                            child: SizedBox(
+                              height: 25.h,
                               child: CircleAvatar(
                                 backgroundColor: Kolors.kSecondaryLight,
                                 child: Icon(
@@ -60,12 +62,14 @@ class StaggeredTileWidget extends StatelessWidget {
                                           .contains(product.id)
                                       ? Kolors.kRed
                                       : Kolors.kGray,
-                                  size: 18,
+                                  size: 15,
                                 ),
                               ),
-                            );
-                          },
-                        ))
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),

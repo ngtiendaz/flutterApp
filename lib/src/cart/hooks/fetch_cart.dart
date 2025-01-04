@@ -14,7 +14,7 @@ FetchCart fetchCart() {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/cart/me');
+      Uri url = Uri.parse('${Environment.appBaseUrl}/api/newcart/me');
       String? accessToken = Storage().getString('accessToken');
 
       final response = await http.get(
@@ -24,7 +24,6 @@ FetchCart fetchCart() {
           'Content-Type': 'application/json',
         },
       );
-
 
       if (response.statusCode == 200) {
         cart.value = cartModelFromJson(response.body);

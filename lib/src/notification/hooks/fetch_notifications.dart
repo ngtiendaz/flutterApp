@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/notification/controllers/notification_notifier.dart';
@@ -29,7 +31,8 @@ FetchNotifications fetchNotifications(BuildContext context) {
       );
 
       if (response.statusCode == 200) {
-        notification.value = notificationModelFromJson(response.body);
+        notification.value =
+            notificationModelFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
       error.value = e.toString();
@@ -39,7 +42,7 @@ FetchNotifications fetchNotifications(BuildContext context) {
   }
 
   useEffect(() {
-      fetchData();
+    fetchData();
     return;
   }, const []);
 

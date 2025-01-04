@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/orders/hooks/results/fetch_order_results.dart';
@@ -26,7 +28,7 @@ FetchOrder fetchOrder(int id) {
       );
 
       if (response.statusCode == 200) {
-        order.value = orderFromJson(response.body);
+        order.value = orderFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
       error.value = e.toString();
