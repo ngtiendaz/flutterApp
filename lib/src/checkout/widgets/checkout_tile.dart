@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
@@ -25,7 +24,7 @@ class CheckoutTile extends StatelessWidget {
             width: ScreenUtil().screenWidth,
             height: 90.h,
             decoration: BoxDecoration(
-                color:  Kolors.kPrimaryLight.withOpacity(0.2),
+                color: const Color.fromARGB(255, 180, 67, 67).withOpacity(0.2),
                 borderRadius: kRadiusAll),
             child: SizedBox(
               height: 85.h,
@@ -54,27 +53,29 @@ class CheckoutTile extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            
                           ],
                         ),
                       ),
                       SizedBox(
-                        width: 10.w,
+                        width: 5.w,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ReusableText(
-                              text: cart.product.title,
-                              style: appStyle(
-                                  12, Kolors.kDark, FontWeight.normal)),
-                          ReusableText(
-                              text:
-                                  'Size: ${cart.size}   ||   Color: ${cart.color}'
-                                      .toUpperCase(),
-                              style: appStyle(
-                                  12, Kolors.kGray, FontWeight.normal)),
+                          SizedBox(
+                            width: ScreenUtil().screenWidth * .4,
+                            child: ReusableText(
+                                text: cart.product.title,
+                                style: appStyle(
+                                    12, Kolors.kDark, FontWeight.normal)),
+                          ),
+                          // ReusableText(
+                          //     text:
+                          //         'Size: ${cart.size}   ||   Color: ${cart.color}'
+                          //             .toUpperCase(),
+                          //     style: appStyle(
+                          //         12, Kolors.kGray, FontWeight.normal)),
                           SizedBox(
                             width: ScreenUtil().screenWidth * .5,
                             child: Text(cart.product.description,
@@ -87,48 +88,48 @@ class CheckoutTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 6.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                                onTap: () {
-                                  cartNotifier.setSelectedCounter(
-                                      cart.id, cart.quantity);
-                                },
-                                onDoubleTap: () {},
-                                child: Container(
-                                  width: 40.w,
-                                  height: 20.h,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: Kolors.kPrimary,
-                                        width: 0.5,
-                                      ),
-                                      borderRadius:
-                                          BorderRadius.circular(4.0)),
-                                  child: ReusableText(
-                                      text: "* ${cart.quantity}",
-                                      style: appStyle(12, Kolors.kPrimary,
-                                          FontWeight.normal)),
-                                ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          cartNotifier.setSelectedCounter(
+                              cart.id, cart.quantity);
+                        },
+                        onDoubleTap: () {},
+                        child: Container(
+                          width: 40.w,
+                          height: 20.h,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 122, 59, 59),
+                                width: 0.5,
                               ),
-                        SizedBox(
-                          height: 6.h,
+                              borderRadius: BorderRadius.circular(4.0)),
+                          child: ReusableText(
+                              text: "* ${cart.quantity}",
+                              style: appStyle(
+                                  12,
+                                  const Color.fromARGB(255, 151, 63, 63),
+                                  FontWeight.normal)),
                         ),
+                      ),
+                      SizedBox(
+                        height: 6.h,
+                      ),
                       Padding(
-                                padding: EdgeInsets.only(right: 6.w),
-                                child: ReusableText(
-                                    text:
-                                        "\$ ${(cart.quantity * cart.product.price).toStringAsFixed(2)}",
-                                    style: appStyle(12, Kolors.kPrimary,
-                                        FontWeight.w600)),
-                              )
-                      ],
-                    ),
+                        padding: EdgeInsets.only(right: 6.w),
+                        child: ReusableText(
+                            text:
+                                "\$ ${(cart.quantity * cart.product.price).toStringAsFixed(2)}",
+                            style: appStyle(
+                                12,
+                                const Color.fromARGB(255, 91, 43, 43),
+                                FontWeight.w600)),
+                      )
+                    ],
                   )
                 ],
               ),

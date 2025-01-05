@@ -31,7 +31,7 @@ class StaggeredTileWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         child: Container(
           width: double.infinity,
-          color: Kolors.kOffWhite,
+          color: const Color.fromARGB(255, 253, 227, 227),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

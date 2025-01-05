@@ -34,15 +34,15 @@ class AddressTile extends StatelessWidget {
             backgroundColor: Kolors.kSecondaryLight,
             child: Icon(
               MaterialIcons.location_pin,
-              color: Kolors.kPrimary,
+              color: Color.fromARGB(255, 91, 43, 43),
               size: 30,
             ),
           ),
-          title:ReusableText(
-                  text: addressNotifier.address == null
-                      ? address.addressType.toUpperCase()
-                      : addressNotifier.address!.addressType.toUpperCase(),
-                  style: appStyle(13, Kolors.kDark, FontWeight.w400)),
+          title: ReusableText(
+              text: addressNotifier.address == null
+                  ? address.addressType.toUpperCase()
+                  : addressNotifier.address!.addressType.toUpperCase(),
+              style: appStyle(13, Kolors.kDark, FontWeight.w400)),
           subtitle: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,8 +68,7 @@ class AddressTile extends StatelessWidget {
                   if (isCheckout == true) {
                     changeAddressBottomSheet(context);
                   } else {
-                    address.isDefault ? (){} :
-                    setDefault!();
+                    address.isDefault ? () {} : setDefault!();
                   }
                 },
                 child: Container(
@@ -77,7 +76,7 @@ class AddressTile extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: kRadiusAll,
                     color: isCheckout
-                        ? Kolors.kPrimary
+                        ? const Color.fromARGB(255, 91, 43, 43)
                         : addressNotifier.address == null
                             ? address.isDefault == true
                                 ? Colors.green

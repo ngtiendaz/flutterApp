@@ -58,16 +58,26 @@ class OrderTile extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ReusableText(
-                                  text: product.title,
+                              SizedBox(
+                                width: 150.w,
+                                child: Text(
+                                  product.title,
                                   style: appStyle(
-                                      12, Kolors.kDark, FontWeight.normal)),
-                              ReusableText(
-                                  text:
-                                      "Size : ${product.size}     Color : ${product.color} "
-                                          .toUpperCase(),
-                                  style: appStyle(
-                                      12, Kolors.kGray, FontWeight.normal)),
+                                    12,
+                                    Kolors.kDark,
+                                    FontWeight.bold, // Đổi sang in đậm
+                                  ),
+                                  overflow: TextOverflow
+                                      .ellipsis, // Hiển thị dấu "..." nếu quá dài
+                                  maxLines: 1, // Giới hạn hiển thị 1 dòng
+                                ),
+                              ),
+                              // ReusableText(
+                              //     text:
+                              //         "Size : ${product.size}     Color : ${product.color} "
+                              //             .toUpperCase(),
+                              //     style: appStyle(
+                              //         12, Kolors.kGray, FontWeight.normal)),
                               GestureDetector(
                                 onTap: () {
                                   if (!order.rated
@@ -88,7 +98,8 @@ class OrderTile extends StatelessWidget {
                                       color: order.rated
                                               .contains(product.productId)
                                           ? Kolors.kGray
-                                          : Kolors.kPrimary,
+                                          : const Color.fromARGB(
+                                              255, 163, 87, 87),
                                       borderRadius: BorderRadius.circular(6)),
                                   child: ReusableText(
                                       text: order.rated
@@ -118,13 +129,16 @@ class OrderTile extends StatelessWidget {
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                      color: Kolors.kPrimary,
+                                      color:
+                                          const Color.fromARGB(255, 91, 43, 43),
                                       width: 0.5,
                                     ),
                                     borderRadius: BorderRadius.circular(4.0)),
                                 child: ReusableText(
                                     text: "* ${product.quantity}",
-                                    style: appStyle(12, Kolors.kPrimary,
+                                    style: appStyle(
+                                        12,
+                                        const Color.fromARGB(255, 91, 43, 43),
                                         FontWeight.normal)),
                               ),
                             ),

@@ -36,7 +36,8 @@ class CartTile extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: !cartNotifier.selectedCartItemsId.contains(cart.id)
                         ? Kolors.kWhite
-                        : Kolors.kPrimaryLight.withOpacity(0.2),
+                        : const Color.fromARGB(255, 180, 67, 67)
+                            .withOpacity(0.2),
                     borderRadius: kRadiusAll),
                 child: SizedBox(
                   height: 85.h,
@@ -83,16 +84,22 @@ class CartTile extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              ReusableText(
-                                  text: cart.product.title,
+                              SizedBox(
+                                width: ScreenUtil().screenWidth * .4,
+                                child: Text(
+                                  cart.product.title,
                                   style: appStyle(
-                                      12, Kolors.kDark, FontWeight.normal)),
-                              ReusableText(
-                                  text:
-                                      'Size: ${cart.size}   ||   Color: ${cart.color}'
-                                          .toUpperCase(),
-                                  style: appStyle(
-                                      12, Kolors.kGray, FontWeight.normal)),
+                                      12, Kolors.kDark, FontWeight.bold),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+
+                              // ReusableText(
+                              //     text:
+                              //         'Size: ${cart.size}   ||   Color: ${cart.color}'
+                              //             .toUpperCase(),
+                              //     style: appStyle(
+                              //         12, Kolors.kGray, FontWeight.normal)),
                               SizedBox(
                                 width: ScreenUtil().screenWidth * .5,
                                 child: Text(cart.product.description,
@@ -106,7 +113,7 @@ class CartTile extends StatelessWidget {
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 6.0),
+                        padding: const EdgeInsets.only(right: 0.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -126,14 +133,18 @@ class CartTile extends StatelessWidget {
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
                                           border: Border.all(
-                                            color: Kolors.kPrimary,
+                                            color: const Color.fromARGB(
+                                                255, 91, 43, 43),
                                             width: 0.5,
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(4.0)),
                                       child: ReusableText(
                                           text: "* ${cart.quantity}",
-                                          style: appStyle(12, Kolors.kPrimary,
+                                          style: appStyle(
+                                              12,
+                                              const Color.fromARGB(
+                                                  255, 91, 43, 43),
                                               FontWeight.normal)),
                                     ),
                                   ),
@@ -150,7 +161,10 @@ class CartTile extends StatelessWidget {
                                     child: ReusableText(
                                         text:
                                             "\$ ${(cart.quantity * cart.product.price).toStringAsFixed(2)}",
-                                        style: appStyle(12, Kolors.kPrimary,
+                                        style: appStyle(
+                                            12,
+                                            const Color.fromARGB(
+                                                255, 197, 91, 91),
                                             FontWeight.w600)),
                                   )
                           ],

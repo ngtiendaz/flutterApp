@@ -27,24 +27,28 @@ class CheckoutPage extends HookWidget {
     final rzlt = fetchDefaultAddress();
     final address = rzlt.address;
     final isLoading = rzlt.isLoading;
-    return context.watch<CartNotifier>().paymentUrl.contains('https://checkout.stripe.com')
-              ? const PaymentWebView()
-              : Scaffold(
-      appBar: AppBar(
-        leading: AppBackButton(
-          onTap: () {
-            // clear the address
-            context.read<AddressNotifier>().clearAddress();
-            context.pop();
-          },
-        ),
-        title: ReusableText(
-            text: AppText.kCheckout,
-            style: appStyle(16, Kolors.kPrimary, FontWeight.bold)),
-      ),
-      body: Consumer<CartNotifier>(
-        builder: (context, cartNotifier, child) {
-          return ListView(
+    return context
+            .watch<CartNotifier>()
+            .paymentUrl
+            .contains('https://checkout.stripe.com')
+        ? const PaymentWebView()
+        : Scaffold(
+            appBar: AppBar(
+              leading: AppBackButton(
+                onTap: () {
+                  // clear the address
+                  context.read<AddressNotifier>().clearAddress();
+                  context.pop();
+                },
+              ),
+              title: ReusableText(
+                  text: AppText.kCheckout,
+                  style: appStyle(16, const Color.fromARGB(255, 91, 43, 43),
+                      FontWeight.bold)),
+            ),
+            body: Consumer<CartNotifier>(
+              builder: (context, cartNotifier, child) {
+                return ListView(
                   padding: EdgeInsets.symmetric(horizontal: 14.w),
                   children: [
                     // Add address block
@@ -55,7 +59,7 @@ class CheckoutPage extends HookWidget {
                           ),
 
                     SizedBox(
-                      height: 10.h,
+                      height: 5.h,
                     ),
 
                     SizedBox(
@@ -70,59 +74,62 @@ class CheckoutPage extends HookWidget {
                         ))
                   ],
                 );
-        },
-      ),
-      bottomNavigationBar: Consumer<CartNotifier>(
-        builder: (context, cartNotifier, child) {
-          return GestureDetector(
-            onTap: () {
-              if (address == null) {
-                context.push('/addresses');
-              } else {
-                List<CartItem> checkoutItems = [];
+              },
+            ),
+            bottomNavigationBar: Consumer<CartNotifier>(
+              builder: (context, cartNotifier, child) {
+                return GestureDetector(
+                  onTap: () {
+                    if (address == null) {
+                      context.push('/addresses');
+                    } else {
+                      List<CartItem> checkoutItems = [];
 
-                for (var item in cartNotifier.selectedCartItems) {
-                  CartItem data = CartItem(
-                      name: item.product.title,
-                      id: item.product.id,
-                      price: item.product.price.roundToDouble(),
-                      cartQuantity: item.quantity,
-                      size: item.size,
-                      color: item.color);
+                      for (var item in cartNotifier.selectedCartItems) {
+                        CartItem data = CartItem(
+                          name: item.product.title,
+                          id: item.product.id,
+                          price: item.product.price.roundToDouble(),
+                          cartQuantity: item.quantity,
+                          // size: item.size,
+                          // color: item.color
+                        );
 
-                  checkoutItems.add(data);
-                }
+                        checkoutItems.add(data);
+                      }
 
-                CreateCheckout data = CreateCheckout(
-                    address: context.read<AddressNotifier>().address == null
-                        ? address.id
-                        : context.read<AddressNotifier>().address!.id,
-                    accesstoken: accessToken.toString(),
-                    fcm: '',
-                    totalAmount: cartNotifier.totalPrice,
-                    cartItems: checkoutItems);
+                      CreateCheckout data = CreateCheckout(
+                          address:
+                              context.read<AddressNotifier>().address == null
+                                  ? address.id
+                                  : context.read<AddressNotifier>().address!.id,
+                          accesstoken: accessToken.toString(),
+                          fcm: '',
+                          totalAmount: cartNotifier.totalPrice,
+                          cartItems: checkoutItems);
 
-                String c = createCheckoutToJson(data);
+                      String c = createCheckoutToJson(data);
 
-                cartNotifier.createCheckout(c);
-              }
-            },
-            child: Container(
-              height: 80,
-              width: ScreenUtil().screenWidth,
-              decoration: BoxDecoration(
-                  color: Kolors.kPrimaryLight, borderRadius: kRadiusTop),
-              child: Center(
-                child: ReusableText(
-                    text: address == null
-                        ? "Please an address"
-                        : "Continue to Payment",
-                    style: appStyle(16, Kolors.kWhite, FontWeight.w600)),
-              ),
+                      cartNotifier.createCheckout(c);
+                    }
+                  },
+                  child: Container(
+                    height: 80,
+                    width: ScreenUtil().screenWidth,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 180, 67, 67),
+                        borderRadius: kRadiusTop),
+                    child: Center(
+                      child: ReusableText(
+                          text: address == null
+                              ? "Please an address"
+                              : "Continue to Payment",
+                          style: appStyle(16, Kolors.kWhite, FontWeight.w600)),
+                    ),
+                  ),
+                );
+              },
             ),
           );
-        },
-      ),
-    );
   }
 }

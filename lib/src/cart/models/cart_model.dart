@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final cartModel = cartModelFromJson(jsonString);
-
 import 'dart:convert';
 
 List<CartModel> cartModelFromJson(String str) =>
@@ -14,31 +10,23 @@ class CartModel {
   final int id;
   final Product product;
   final int quantity;
-  final String size;
-  final String color;
 
   CartModel({
     required this.id,
     required this.product,
     required this.quantity,
-    required this.size,
-    required this.color,
   });
 
   factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
         id: json["id"],
         product: Product.fromJson(json["product"]),
         quantity: json["quantity"],
-        size: json["size"],
-        color: json["color"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "product": product.toJson(),
         "quantity": quantity,
-        "size": size,
-        "color": color,
       };
 }
 
@@ -48,10 +36,8 @@ class Product {
   final double price;
   final String description;
   final bool isFeatured;
-  final String clothesType;
-  final double ratings;
-  final List<String> colors;
-  final List<String> sizes;
+  final String productType;
+  final double rating;
   final List<String> imageUrls;
   final DateTime createdAt;
   final int category;
@@ -63,10 +49,8 @@ class Product {
     required this.price,
     required this.description,
     required this.isFeatured,
-    required this.clothesType,
-    required this.ratings,
-    required this.colors,
-    required this.sizes,
+    required this.productType,
+    required this.rating,
     required this.imageUrls,
     required this.createdAt,
     required this.category,
@@ -79,12 +63,10 @@ class Product {
         price: json["price"]?.toDouble(),
         description: json["description"],
         isFeatured: json["is_featured"],
-        clothesType: json["clothesType"],
-        ratings: json["ratings"]?.toDouble(),
-        colors: List<String>.from(json["colors"].map((x) => x)),
-        sizes: List<String>.from(json["sizes"].map((x) => x)),
+        productType: json["productType"],
+        rating: json["rating"]?.toDouble(),
         imageUrls: List<String>.from(json["imageUrls"].map((x) => x)),
-        createdAt: DateTime.parse(json["created_at"]),
+        createdAt: DateTime.parse(json["createdAt"]),
         category: json["category"],
         brand: json["brand"],
       );
@@ -95,12 +77,10 @@ class Product {
         "price": price,
         "description": description,
         "is_featured": isFeatured,
-        "clothesType": clothesType,
-        "ratings": ratings,
-        "colors": List<dynamic>.from(colors.map((x) => x)),
-        "sizes": List<dynamic>.from(sizes.map((x) => x)),
+        "productType": productType,
+        "rating": rating,
         "imageUrls": List<dynamic>.from(imageUrls.map((x) => x)),
-        "created_at": createdAt.toIso8601String(),
+        "createdAt": createdAt.toIso8601String(),
         "category": category,
         "brand": brand,
       };

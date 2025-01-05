@@ -24,19 +24,27 @@ class CartCounter extends StatelessWidget {
                 onTap: () {
                   cartNotifier.decrement();
                 },
-                child: const Icon(AntDesign.minussquareo, color: Kolors.kPrimary, size: 20,),
+                child: const Icon(
+                  AntDesign.minussquareo,
+                  color: Color.fromARGB(255, 91, 43, 43),
+                  size: 20,
+                ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(top :3.0),
-                child: ReusableText(text: cartNotifier.qty.toString(), style: appStyle(13, Kolors.kDark, FontWeight.w500)),
+                padding: const EdgeInsets.only(top: 3.0),
+                child: ReusableText(
+                    text: cartNotifier.qty.toString(),
+                    style: appStyle(13, Kolors.kDark, FontWeight.w500)),
               ),
-
               GestureDetector(
                 onTap: () {
                   cartNotifier.increment();
                 },
-                child: const Icon(AntDesign.plussquareo, color: Kolors.kPrimary, size: 20,),
+                child: const Icon(
+                  AntDesign.plussquareo,
+                  color: Color.fromARGB(255, 91, 43, 43),
+                  size: 20,
+                ),
               ),
             ],
           ),

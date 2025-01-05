@@ -19,10 +19,10 @@ class UpdateButton extends StatelessWidget {
         context.read<CartNotifier>().clearSelected();
       },
       child: Container(
-        width: 65.w,
+        width: 50.w,
         height: 18.h,
         decoration: BoxDecoration(
-          color: Kolors.kPrimaryLight,
+          color: const Color.fromARGB(255, 180, 67, 67),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Center(

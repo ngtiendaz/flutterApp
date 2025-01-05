@@ -20,17 +20,17 @@ FetchOrders fetchOrders(FetchOrdersTypes o) {
       switch (o) {
         case FetchOrdersTypes.pending:
           url = Uri.parse(
-              '${Environment.appBaseUrl}/api/orders/me/?status=Pending');
+              '${Environment.appBaseUrl}/api/orders/me/?order_status=Pending');
           break;
 
         case FetchOrdersTypes.delivered:
           url = Uri.parse(
-              '${Environment.appBaseUrl}/api/orders/me/?status=Delivered');
+              '${Environment.appBaseUrl}/api/orders/me/?order_status=delivered');
           break;
 
         case FetchOrdersTypes.cancelled:
           url = Uri.parse(
-              '${Environment.appBaseUrl}/api/orders/me/?status=Cancelled');
+              '${Environment.appBaseUrl}/api/orders/me/?order_status=cancelled');
           break;
         default:
       }
@@ -46,6 +46,7 @@ FetchOrders fetchOrders(FetchOrdersTypes o) {
       );
 
       if (response.statusCode == 200) {
+        print(response.body);
         orders.value = ordersModelFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {

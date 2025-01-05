@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/cart/controllers/cart_notifier.dart';
@@ -30,7 +32,7 @@ FetchCartCount fetchCartCount(BuildContext context) {
       );
 
       if (response.statusCode == 200) {
-        count.value = cartCountModelFromJson(response.body);
+        count.value = cartCountModelFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
       error.value = e.toString();

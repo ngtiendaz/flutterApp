@@ -12,7 +12,7 @@ String createCheckoutToJson(CreateCheckout data) => json.encode(data.toJson());
 class CreateCheckout {
   final String accesstoken;
   final String fcm;
-  
+
   final double totalAmount;
   final List<CartItem> cartItems;
   final int address;
@@ -45,8 +45,6 @@ class CreateCheckout {
 
 class CartItem {
   final String name;
-  final String size;
-  final String color;
   final int id;
   final double price;
   final int cartQuantity;
@@ -56,14 +54,10 @@ class CartItem {
     required this.id,
     required this.price,
     required this.cartQuantity,
-    required this.size,
-    required this.color,
   });
 
   factory CartItem.fromJson(Map<String, dynamic> json) => CartItem(
         name: json["name"],
-        size: json["size"],
-        color: json["color"],
         id: json["id"],
         price: json["price"]?.toDouble(),
         cartQuantity: json["cartQuantity"],
@@ -71,8 +65,6 @@ class CartItem {
 
   Map<String, dynamic> toJson() => {
         "name": name,
-        "size": size,
-        "color": color,
         "id": id,
         "price": price,
         "cartQuantity": cartQuantity,

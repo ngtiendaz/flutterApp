@@ -31,7 +31,7 @@ class SelectAddressTile extends StatelessWidget {
               backgroundColor: Kolors.kSecondaryLight,
               child: Icon(
                 MaterialIcons.location_pin,
-                color: Kolors.kPrimary,
+                color: Color.fromARGB(255, 91, 43, 43),
                 size: 30,
               ),
             ),
@@ -55,7 +55,8 @@ class SelectAddressTile extends StatelessWidget {
                         addressNotifier.address!.id == address.id
                     ? "Selected"
                     : 'Select',
-                style: appStyle(12, Kolors.kPrimaryLight, FontWeight.w400)));
+                style: appStyle(12, const Color.fromARGB(255, 180, 67, 67),
+                    FontWeight.w400)));
       },
     );
   }

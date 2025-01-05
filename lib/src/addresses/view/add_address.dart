@@ -27,10 +27,11 @@ class _AddAddressState extends State<AddAddress> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: AppBackButton(),
+          leading: const AppBackButton(),
           title: ReusableText(
               text: AppText.kAddShipping,
-              style: appStyle(16, Kolors.kPrimary, FontWeight.bold)),
+              style: appStyle(
+                  16, const Color.fromARGB(255, 91, 43, 43), FontWeight.bold)),
         ),
         body: Consumer<AddressNotifier>(
           builder: (context, addressNotifier, child) {
@@ -72,18 +73,19 @@ class _AddAddressState extends State<AddAddress> {
                           padding: EdgeInsets.symmetric(horizontal: 10.w),
                           decoration: BoxDecoration(
                               color: addressNotifier.addressType == addressType
-                                  ? Kolors.kPrimaryLight
+                                  ? const Color.fromARGB(255, 180, 67, 67)
                                   : Kolors.kWhite,
                               borderRadius: kRadiusAll,
-                              border:
-                                  Border.all(color: Kolors.kPrimary, width: 1)),
+                              border: Border.all(
+                                  color: const Color.fromARGB(255, 91, 43, 43),
+                                  width: 1)),
                           child: ReusableText(
                               text: addressType,
                               style: appStyle(
                                   12,
                                   addressNotifier.addressType == addressType
                                       ? Kolors.kWhite
-                                      : Kolors.kPrimary,
+                                      : const Color.fromARGB(255, 91, 43, 43),
                                   FontWeight.normal)),
                         ),
                       );
@@ -100,12 +102,14 @@ class _AddAddressState extends State<AddAddress> {
                     children: [
                       ReusableText(
                           text: "Set this address as default",
-                          style:
-                              appStyle(14, Kolors.kPrimary, FontWeight.normal)),
+                          style: appStyle(
+                              14,
+                              const Color.fromARGB(255, 91, 43, 43),
+                              FontWeight.normal)),
                       CupertinoSwitch(
                           value: addressNotifier.defaultToggle,
                           thumbColor: Kolors.kSecondaryLight,
-                          activeColor: Kolors.kPrimary,
+                          activeColor: const Color.fromARGB(255, 91, 43, 43),
                           onChanged: (d) {
                             addressNotifier.setDefaultToggle(d);
                           })
@@ -148,13 +152,13 @@ class _AddAddressState extends State<AddAddress> {
 
 class _buildtextfield extends StatelessWidget {
   const _buildtextfield({
-    Key? key,
+    super.key,
     required this.hintText,
     required this.controller,
     required this.onSubmitted,
     this.keyboard,
     this.readOnly,
-  }) : super(key: key);
+  });
 
   final TextEditingController controller;
   final String hintText;

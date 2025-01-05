@@ -111,7 +111,10 @@ class ProductPage extends StatelessWidget {
                     children: [
                       ReusableText(
                           text: productNotifier.product!.productType.toString(),
-                          style: appStyle(13, Kolors.kGray, FontWeight.w600)),
+                          style: appStyle(
+                              13,
+                              const Color.fromARGB(255, 31, 31, 34),
+                              FontWeight.w600)),
                       Row(
                         children: [
                           const Icon(

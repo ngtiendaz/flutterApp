@@ -38,7 +38,7 @@ class SimilarProducts extends HookWidget {
               crossAxisSpacing: 4,
               crossAxisCount: 4,
               children: List.generate(products.length, (i) {
-                final double mainAxisCellCount = (i % 2 == 0 ? 2.17 : 2.4);
+                final double mainAxisCellCount = (i % 2 == 0 ? 2.37 : 2.67);
                 final product = products[i];
                 return StaggeredGridTile.count(
                     crossAxisCellCount: 2,

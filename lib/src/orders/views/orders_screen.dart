@@ -31,7 +31,8 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
           ),
           title: ReusableText(
               text: AppText.kOrder,
-              style: appStyle(14, Kolors.kPrimary, FontWeight.w600)),
+              style: appStyle(
+                  14, const Color.fromARGB(255, 91, 43, 43), FontWeight.w600)),
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(30.h),
               child: Padding(
@@ -41,8 +42,8 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                   child: TabBar(
                     controller: _tabController,
                     indicator: BoxDecoration(
-                        color: Kolors.kPrimary,
-                        borderRadius: BorderRadius.circular(25)),
+                        color: const Color.fromARGB(255, 180, 67, 67),
+                        borderRadius: BorderRadius.circular(12)),
                     labelPadding: EdgeInsets.zero,
                     labelColor: Kolors.kWhite,
                     dividerColor: Colors.transparent,

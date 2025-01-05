@@ -21,7 +21,8 @@ class SuccessfulPayment extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: ReusableText(
             text: "Payment",
-            style: appStyle(16, Kolors.kPrimary, FontWeight.w600)),
+            style: appStyle(
+                16, const Color.fromARGB(255, 91, 43, 43), FontWeight.w600)),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +38,8 @@ class SuccessfulPayment extends StatelessWidget {
           Center(
               child: ReusableText(
             text: 'Payment Successful!',
-            style: appStyle(20, Kolors.kPrimary, FontWeight.w600),
+            style: appStyle(
+                20, const Color.fromARGB(255, 91, 43, 43), FontWeight.w600),
           )),
           SizedBox(
             height: 10.h,
@@ -61,8 +63,9 @@ class SuccessfulPayment extends StatelessWidget {
         child: Container(
           height: 80,
           width: ScreenUtil().screenWidth,
-          decoration:
-              BoxDecoration(color: Kolors.kPrimary, borderRadius: kRadiusTop),
+          decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 91, 43, 43),
+              borderRadius: kRadiusTop),
           child: Center(
             child: ReusableText(
                 text: "Continue to Home",

@@ -54,9 +54,10 @@ class _LoginPageState extends State<LoginPage> {
             height: 160.h,
           ),
           Text(
-            "Dbest Fashions",
+            "TechStore",
             textAlign: TextAlign.center,
-            style: appStyle(24, Kolors.kPrimary, FontWeight.bold),
+            style: appStyle(
+                24, const Color.fromARGB(255, 187, 56, 56), FontWeight.bold),
           ),
           SizedBox(
             height: 10.h,
@@ -102,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                 context.watch<AuthNotifier>().isLoading
                     ? const Center(
                         child: CircularProgressIndicator(
-                          backgroundColor: Kolors.kPrimary,
+                          backgroundColor: Color.fromARGB(255, 185, 65, 65),
                           valueColor:
                               AlwaysStoppedAnimation<Color>(Kolors.kWhite),
                         ),
@@ -114,7 +115,6 @@ class _LoginPageState extends State<LoginPage> {
                               username: _usernameController.text);
 
                           String data = loginModelToJson(model);
-
 
                           context.read<AuthNotifier>().loginFunc(data, context);
                         },

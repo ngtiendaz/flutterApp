@@ -40,7 +40,8 @@ class CartPage extends HookWidget {
       appBar: AppBar(
         title: ReusableText(
             text: AppText.kCart,
-            style: appStyle(15, Kolors.kPrimary, FontWeight.bold)),
+            style: appStyle(
+                15, const Color.fromARGB(255, 91, 43, 43), FontWeight.bold)),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 12.w),
@@ -69,7 +70,7 @@ class CartPage extends HookWidget {
                       height: 130,
                       decoration: BoxDecoration(
                           borderRadius: kRadiusTop,
-                          color: Kolors.kPrimaryLight),
+                          color: const Color.fromARGB(255, 180, 67, 67)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

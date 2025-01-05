@@ -68,7 +68,8 @@ class ShippingAddress extends HookWidget {
           height: 80,
           width: ScreenUtil().screenWidth,
           decoration: BoxDecoration(
-              color: Kolors.kPrimaryLight, borderRadius: kRadiusTop),
+              color: const Color.fromARGB(255, 180, 67, 67),
+              borderRadius: kRadiusTop),
           child: Center(
             child: ReusableText(
                 text: "Add Address",

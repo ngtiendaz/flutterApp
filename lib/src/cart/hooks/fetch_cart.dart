@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/cart/hooks/results/cart_results.dart';
@@ -14,7 +16,7 @@ FetchCart fetchCart() {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/newcart/me');
+      Uri url = Uri.parse('${Environment.appBaseUrl}/api/newcart/me/');
       String? accessToken = Storage().getString('accessToken');
 
       final response = await http.get(
@@ -26,7 +28,8 @@ FetchCart fetchCart() {
       );
 
       if (response.statusCode == 200) {
-        cart.value = cartModelFromJson(response.body);
+        cart.value = cartModelFromJson(utf8.decode(response.bodyBytes));
+        print(cart.value);
       }
     } catch (e) {
       error.value = e.toString();
