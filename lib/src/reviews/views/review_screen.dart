@@ -27,7 +27,8 @@ class _ReviewPageState extends State<ReviewPage> {
         leading: const AppBackButton(),
         title: ReusableText(
             text: "Add Review",
-            style: appStyle(15, Kolors.kPrimary, FontWeight.bold)),
+            style: appStyle(
+                15, const Color.fromARGB(255, 117, 54, 54), FontWeight.bold)),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 12.w),
@@ -49,7 +50,8 @@ class _ReviewPageState extends State<ReviewPage> {
           Center(
               child: ReusableText(
                   text: "How was your order ?",
-                  style: appStyle(16, Kolors.kPrimary, FontWeight.bold))),
+                  style: appStyle(16, const Color.fromARGB(255, 91, 43, 43),
+                      FontWeight.bold))),
           SizedBox(
             height: 10.h,
           ),
@@ -84,7 +86,8 @@ class _ReviewPageState extends State<ReviewPage> {
           Center(
             child: ReusableText(
                 text: "Add Review",
-                style: appStyle(16, Kolors.kPrimary, FontWeight.bold)),
+                style: appStyle(16, const Color.fromARGB(255, 100, 48, 48),
+                    FontWeight.bold)),
           ),
           SizedBox(
             height: 10.h,
@@ -123,7 +126,8 @@ class _ReviewPageState extends State<ReviewPage> {
               },
               child: ReusableText(
                   text: "Submit",
-                  style: appStyle(13, Kolors.kPrimary, FontWeight.bold)),
+                  style: appStyle(
+                      13, const Color.fromARGB(255, 3, 3, 3), FontWeight.bold)),
             )
           ],
         ),

@@ -109,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       )
                     : CustomButton(
+                        btnColor: const Color.fromARGB(255, 107, 35, 35),
                         onTap: () {
                           LoginModel model = LoginModel(
                               password: _passwordController.text,

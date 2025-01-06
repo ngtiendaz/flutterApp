@@ -51,15 +51,26 @@ class ReviewTile extends StatelessWidget {
                             SizedBox(
                               width: 10.w,
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ReusableText(
-                                    text: ratingNoifier.order!.title,
+                            SizedBox(
+                              width: 170.w,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    ratingNoifier.order!.title,
                                     style: appStyle(
-                                        12, Kolors.kDark, FontWeight.normal)),
-                              ],
+                                      12,
+                                      Kolors.kDark,
+                                      FontWeight.bold, // Đổi sang in đậm
+                                    ),
+                                    overflow: TextOverflow
+                                        .ellipsis, // Hiển thị dấu "..." nếu quá dài
+                                    maxLines: 1, // Giới hạn hiển thị 1 dòng
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),

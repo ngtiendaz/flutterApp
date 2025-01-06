@@ -52,7 +52,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
           Text(
             "TechStore",
             textAlign: TextAlign.center,
-            style: appStyle(24, Kolors.kPrimary, FontWeight.bold),
+            style: appStyle(
+                24, const Color.fromARGB(255, 167, 63, 63), FontWeight.bold),
           ),
           SizedBox(
             height: 10.h,
@@ -115,12 +116,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 context.watch<AuthNotifier>().isRLoading
                     ? const Center(
                         child: CircularProgressIndicator(
-                          backgroundColor: Kolors.kPrimary,
+                          backgroundColor: Color.fromARGB(255, 117, 55, 55),
                           valueColor:
                               AlwaysStoppedAnimation<Color>(Kolors.kWhite),
                         ),
                       )
                     : CustomButton(
+                        btnColor: const Color.fromARGB(255, 109, 35, 35),
                         onTap: () {
                           RegistrationModel model = RegistrationModel(
                               password: _passwordController.text,
@@ -129,7 +131,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                           String data = registrationModelToJson(model);
 
-                          print(data);
+                          // print(data);
 
                           context
                               .read<AuthNotifier>()

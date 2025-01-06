@@ -7,7 +7,8 @@ class AppBackButton extends StatelessWidget {
   const AppBackButton({
     super.key,
     this.color,
-    this.size, this.onTap,
+    this.size,
+    this.onTap,
   });
 
   final Color? color;
@@ -19,7 +20,8 @@ class AppBackButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap ?? () => GoRouter.of(context).pop(),
       child: Icon(AntDesign.leftcircle,
-          color: color ?? Kolors.kPrimary, size: size ?? 24),
+          color: color ?? const Color.fromARGB(255, 148, 44, 44),
+          size: size ?? 24),
     );
   }
 }

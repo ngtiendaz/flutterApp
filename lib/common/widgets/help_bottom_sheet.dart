@@ -28,7 +28,7 @@ Future<dynamic> showHelpCenterBottomSheet(BuildContext context) {
                   FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 2.0.h),
 
               // Information Section
               Text(
@@ -36,7 +36,7 @@ Future<dynamic> showHelpCenterBottomSheet(BuildContext context) {
                 textAlign: TextAlign.center,
                 style: appStyle(16.0, Kolors.kDark, FontWeight.normal),
               ),
-              SizedBox(height: 15.h),
+              SizedBox(height: 10.h),
 
               // FAQ Section (Replace with actual FAQs)
               const Text(
@@ -74,7 +74,7 @@ Future<dynamic> showHelpCenterBottomSheet(BuildContext context) {
                 'Contact Us:',
                 style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               ),
-               SizedBox(height: 10.h),
+              SizedBox(height: 10.h),
               const Row(
                 children: [
                   Icon(MaterialCommunityIcons.email_outline),
