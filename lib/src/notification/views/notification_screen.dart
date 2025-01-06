@@ -31,7 +31,8 @@ class NotificationsPage extends HookWidget {
         leading: const AppBackButton(),
         title: ReusableText(
             text: AppText.kNotifications,
-            style: appStyle(16, Kolors.kPrimary, FontWeight.w600)),
+            style: appStyle(
+                16, const Color.fromARGB(255, 91, 43, 43), FontWeight.w600)),
       ),
       body: notifications.isEmpty
           ? const EmptyScreenWidget()

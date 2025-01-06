@@ -31,7 +31,7 @@ class NotificationNotifier with ChangeNotifier {
 
     try {
       Uri url = Uri.parse(
-          '${Environment.appBaseUrl}/api/notifications/update/?id=$id');
+          '${Environment.appBaseUrl}/api/notification/update/?id=$id');
 
       final response = await http.patch(
         url,
@@ -40,7 +40,6 @@ class NotificationNotifier with ChangeNotifier {
           'Content-Type': 'application/json',
         },
       );
-
 
       if (response.statusCode == 200) {
         refetch!();

@@ -21,7 +21,7 @@ FetchCount fetchCount(BuildContext context) {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/notifications/count/');
+      Uri url = Uri.parse('${Environment.appBaseUrl}/api/notification/count/');
 
       final response = await http.get(
         url,

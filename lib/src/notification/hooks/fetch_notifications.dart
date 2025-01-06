@@ -20,7 +20,7 @@ FetchNotifications fetchNotifications(BuildContext context) {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/notifications/me/');
+      Uri url = Uri.parse('${Environment.appBaseUrl}/api/notification/me/');
 
       final response = await http.get(
         url,

@@ -21,7 +21,7 @@ class NotificationTile extends StatelessWidget {
         onTap: onUpdate,
         child: Container(
           decoration: BoxDecoration(
-              color: i%2 ==0 ?Kolors.kOffWhite : Kolors.kWhite,
+              color: i % 2 == 0 ? Kolors.kOffWhite : Kolors.kWhite,
               border: Border.symmetric(
                   horizontal:
                       BorderSide(width: .2.h, color: Kolors.kGrayLight))),
@@ -36,9 +36,6 @@ class NotificationTile extends StatelessWidget {
                     color: Kolors.kPrimary,
                     size: 28.w,
                   ),
-                ),
-                SizedBox(
-                  width: 10.w,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 4.w),
@@ -55,17 +52,18 @@ class NotificationTile extends StatelessWidget {
                             const Spacer(),
                             ReusableText(
                                 text: GetTimeAgo.parse(notification.createdAt),
-                                style: appStyle(12, Kolors.kGrayLight, FontWeight.normal))
+                                style: appStyle(
+                                    12, Kolors.kGrayLight, FontWeight.normal))
                           ],
                         ),
-
-                        
                       ),
-
                       SizedBox(
-                         width: ScreenUtil().screenWidth * .82,
-                         child: Text(notification.message, textAlign: TextAlign.justify, maxLines: 3,
-                         style: appStyle(12, Kolors.kGray, FontWeight.normal)),
+                        width: ScreenUtil().screenWidth * .82,
+                        child: Text(notification.message,
+                            textAlign: TextAlign.justify,
+                            maxLines: 3,
+                            style:
+                                appStyle(12, Kolors.kGray, FontWeight.normal)),
                       )
                     ],
                   ),
