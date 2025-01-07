@@ -20,7 +20,7 @@ FetchOrders fetchOrders(FetchOrdersTypes o) {
       switch (o) {
         case FetchOrdersTypes.pending:
           url = Uri.parse(
-              '${Environment.appBaseUrl}/api/orders/me/?order_status=Pending');
+              '${Environment.appBaseUrl}/api/orders/me/?order_status=pending');
           break;
 
         case FetchOrdersTypes.delivered:

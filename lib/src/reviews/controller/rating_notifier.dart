@@ -38,8 +38,6 @@ class RatingNotifier with ChangeNotifier {
 
     Uri url = Uri.parse('${Environment.appBaseUrl}/api/rating/review/');
 
-    print(url);
-
     try {
       final response = await http.post(url,
           headers: {
@@ -48,7 +46,6 @@ class RatingNotifier with ChangeNotifier {
           },
           body: data);
 
-      print(response.statusCode);
       if (response.statusCode == 201) {
         _r = 0.0;
         context.push('/orders');
