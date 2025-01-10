@@ -15,7 +15,7 @@ FetchDefaultAddress fetchDefaultAddress() {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/address/me');
+      Uri url = Uri.parse('${Environment.appBaseUrl}/api/address/me/');
 
       final response = await http.get(
         url,

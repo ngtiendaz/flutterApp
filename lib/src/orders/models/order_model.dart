@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final order = orderFromJson(jsonString);
-
 import 'dart:convert';
 
 Order orderFromJson(String str) => Order.fromJson(json.decode(str));
@@ -46,8 +42,8 @@ class Order {
             json["order_products"].map((x) => OrderProduct.fromJson(x))),
         rated: List<int>.from(json["rated"].map((x) => x)),
         totalQuantity: json["total_quantity"],
-        subtotal: json["subtotal"],
-        total: json["total"],
+        subtotal: json["subtotal"]?.toDouble(),
+        total: json["total"]?.toDouble(),
         deliveryStatus: json["delivery_status"],
         paymentStatus: json["payment_status"],
         createdAt: DateTime.parse(json["created_at"]),
@@ -80,8 +76,6 @@ class OrderProduct {
   final String title;
   final double price;
   final int quantity;
-  final String size;
-  final String color;
 
   OrderProduct({
     required this.productId,
@@ -89,8 +83,6 @@ class OrderProduct {
     required this.title,
     required this.price,
     required this.quantity,
-    required this.size,
-    required this.color,
   });
 
   factory OrderProduct.fromJson(Map<String, dynamic> json) => OrderProduct(
@@ -99,8 +91,6 @@ class OrderProduct {
         title: json["title"],
         price: json["price"]?.toDouble(),
         quantity: json["quantity"],
-        size: json["size"],
-        color: json["color"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -109,7 +99,5 @@ class OrderProduct {
         "title": title,
         "price": price,
         "quantity": quantity,
-        "size": size,
-        "color": color,
       };
 }

@@ -21,7 +21,7 @@ FetchCartCount fetchCartCount(BuildContext context) {
     isLoading.value = true;
 
     try {
-      Uri url = Uri.parse('${Environment.appBaseUrl}/api/newcart/count');
+      Uri url = Uri.parse('${Environment.appBaseUrl}/api/newcart/count/');
 
       final response = await http.get(
         url,

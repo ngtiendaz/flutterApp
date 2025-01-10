@@ -56,38 +56,13 @@ class NotificationOrderTile extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ReusableText(
-                                  text: product.title,
-                                  style: appStyle(
-                                      12, Kolors.kDark, FontWeight.normal)),
-                              ReusableText(
-                                  text:
-                                      "Size : ${product.size}     Color : ${product.color} "
-                                          .toUpperCase(),
-                                  style: appStyle(
-                                      12, Kolors.kGray, FontWeight.normal)),
-                              GestureDetector(
-                                onTap: () {
-                                  context.push('/review');
-                                },
-                                child: Container(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 8),
-                                  decoration: BoxDecoration(
-                                      color: order.rated
-                                              .contains(product.productId)
-                                          ? Kolors.kGray
-                                          : Kolors.kPrimary,
-                                      borderRadius: BorderRadius.circular(6)),
-                                  child: ReusableText(
-                                      text: order.rated
-                                              .contains(product.productId)
-                                          ? "Reviewed"
-                                          : "Review",
-                                      style: appStyle(12, Kolors.kWhite,
-                                          FontWeight.normal)),
-                                ),
-                              )
+                              SizedBox(
+                                width: 150.w,
+                                child: ReusableText(
+                                    text: product.title,
+                                    style: appStyle(
+                                        12, Kolors.kDark, FontWeight.normal)),
+                              ),
                             ],
                           ),
                         ],

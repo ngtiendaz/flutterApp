@@ -28,6 +28,7 @@ FetchOrder fetchOrder(int id) {
       );
 
       if (response.statusCode == 200) {
+        print(response.body);
         order.value = orderFromJson(utf8.decode(response.bodyBytes));
       }
     } catch (e) {
